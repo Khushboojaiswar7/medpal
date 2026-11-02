@@ -1,0 +1,116 @@
+/* MedPal Modern Healthcare & Accessibility Stylesheet */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Base Root Variables */
+:root {
+    --primary-blue: #2563EB;
+    --primary-dark: #1E40AF;
+    --emergency-red: #DC2626;
+    --emergency-hover: #B91C1C;
+    --success-green: #059669;
+    --warning-amber: #D97706;
+    --bg-card: #FFFFFF;
+    --text-main: #1F2937;
+    --text-muted: #4B5563;
+    --border-card: #E5E7EB;
+}
+
+/* General Layout */
+.stApp {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Large Font & Elderly Mode Classes */
+.elderly-mode {
+    font-size: 1.18rem !important;
+    line-height: 1.65 !important;
+}
+
+.elderly-mode p, .elderly-mode span, .elderly-mode div {
+    font-size: 1.15rem !important;
+}
+
+.elderly-mode h1 { font-size: 2.2rem !important; font-weight: 800 !important; }
+.elderly-mode h2 { font-size: 1.8rem !important; font-weight: 750 !important; }
+.elderly-mode h3 { font-size: 1.5rem !important; font-weight: 700 !important; }
+
+/* Emergency SOS Pulse Banner */
+.emergency-banner {
+    background: linear-gradient(135deg, #DC2626, #991B1B);
+    color: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(220, 38, 38, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+/* Card Containers */
+.med-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.med-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.hospital-card {
+    background: #FFFFFF;
+    border-left: 6px solid #2563EB;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.hospital-card.selected {
+    border-left-color: #059669;
+    background: #F0FDF4;
+}
+
+/* Time Routine Badge */
+.routine-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-right: 8px;
+    margin-bottom: 6px;
+}
+
+.routine-morning { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+.routine-afternoon { background: #DBEAFE; color: #1E40AF; border: 1px solid #BFDBFE; }
+.routine-night { background: #EDE9FE; color: #5B21B6; border: 1px solid #DDD6FE; }
+.food-badge { background: #D1FAE5; color: #065F46; border: 1px solid #A7F3D0; }
+
+/* Status Stage Steps */
+.status-step {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.step-done { background: #D1FAE5; color: #065F46; font-weight: 600; }
+.step-active { background: #FEF3C7; color: #92400E; font-weight: 700; animation: pulse-border 1.5s infinite; }
+.step-pending { background: #F3F4F6; color: #9CA3AF; }
